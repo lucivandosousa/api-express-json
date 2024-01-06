@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1835e1c2-192c-4f70-b83f-52a6b9128798",
+    "description": "Produto 1",
+    "preco": 15,
+    "quantity": 100
+  },
+  {
+    "id": "088c4dd0-91a0-44c1-9992-c9a63f2681a3",
+    "description": "Produto 2",
+    "preco": 10,
+    "quantity": 100
+  },
+  {
+    "id": "1310bf6a-4020-4e45-8232-6eaf90dc52aa",
+    "description": "Produto 3",
+    "preco": 10,
+    "quantity": 200
+  },
+  {
+    "id": "b7b52914-9866-45cc-838d-2c5b99ee3353",
+    "description": "Produto 4",
+    "preco": 20,
+    "quantity": 150
+  },
+  {
+    "id": "335ed618-dac6-4701-b423-b9c7071cabca",
+    "description": "Produto 5",
+    "preco": 20,
+    "quantity": 15
+  }
+]
