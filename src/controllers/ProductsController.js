@@ -1,7 +1,7 @@
 const fs = require("fs")
 const { v4: uuidv4 } = require('uuid')
 
-class productController {
+class ProductController {
 
   static async cadastrarProduto(req, res) {
     const id = uuidv4()
@@ -44,4 +44,4 @@ class productController {
 
 }
 
-module.exports = productController
+module.exports = ProductController
