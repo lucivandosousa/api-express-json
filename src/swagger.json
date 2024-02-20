@@ -1,0 +1,23 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "API de Estoque",
+    "description": "API para controlar estoque de produtos.",
+    "version": "0.0.1",
+    "contact": {
+      "name": "Lucivando Sousa",
+      "url": "https://github.com/lucivandosousa",
+      "email": "lucivandosousa@gmail.com"
+    },
+    "license": {
+      "name": "Licença: GPLv3",
+      "url": "https://www.gnu.org/licenses/gpl-3.0.html"
+    } 
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Server Local"
+    }
+  ]
+}
