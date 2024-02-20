@@ -12,12 +12,190 @@
     "license": {
       "name": "Licença: GPLv3",
       "url": "https://www.gnu.org/licenses/gpl-3.0.html"
-    } 
+    }
   },
   "servers": [
     {
       "url": "http://localhost:3000",
       "description": "Server Local"
     }
-  ]
+  ],
+  "paths": {
+    "/produtos": {
+      "post": {
+        "summary": "Cria um novo produto",
+        "description": "Irá adicionar um novo produto na base de dados",
+        "tags": ["Produtos"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "description": {
+                      "type": "string"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Recupera todos os produtos",
+        "description": "Irá retornar todos os produtos da base de dados",
+        "tags": ["Produtos"],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produtos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/produtos/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "description": "ID do protuto",
+          "schema": {
+            "type": "string"
+          },
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "Recupera um produto pelo ID",
+        "description": "Irá retornar o produto que possui o ID passado por parâmentro",
+        "tags": ["Produtos"],
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "summary": "Atualiza um produto pelo ID",
+        "description": "Irá atualizar o produto que possui o ID passado por parâmentro",
+        "tags": ["Produtos"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "number"
+                  },
+                  "quantity": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Produto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "summary": "Exclui um produto pelo ID",
+        "description": "Irá excluir o produto que possui o ID passado por parâmentro",
+        "tags": ["Produtos"],
+        "responses": {
+          "200": {
+            "description": "Sucesso"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Produto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Identificador único do produto"
+          },
+          "description": {
+            "type": "string",
+            "description": "Descrição do produto"
+          },
+          "price": {
+            "type": "number",
+            "description": "Preço do produto"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Quantidade do produto"
+          }
+        }
+      },
+      "Produtos": {
+        "type": "array",
+        "items": {
+          "$ref": "#/components/schemas/Produto"
+        }
+      }
+    }
+  }
 }
